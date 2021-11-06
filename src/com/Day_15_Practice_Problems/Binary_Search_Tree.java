@@ -11,7 +11,8 @@ public class Binary_Search_Tree
 		public Node(int data) 
 		{
 			key = data;
-			left = right = null;
+			left = null;
+			right = null;
 		}
 	}
 
@@ -70,14 +71,30 @@ public class Binary_Search_Tree
 		// create a BST object
 		Binary_Search_Tree bst = new Binary_Search_Tree();
 		/*
-		 * BST tree example 56 
-		 * 				   /   \ 
-		 * 				 30     70 
+		 * BST tree example      56 
+		 * 				      /      \
+		 * 				  30            70
+		 *              /    \        /    \
+		 *            22     40     60      95
+		 *          /                  \
+		 *        11                    65
+		 *      /    \                /    \
+		 *     3     16             63     67
 		 */
 		// insert data into BST
 		bst.insert(56);
 		bst.insert(30);
+		bst.insert(22);
+		bst.insert(40);
+		bst.insert(11);
+		bst.insert(3);
+		bst.insert(16);	
 		bst.insert(70);
+		bst.insert(60);
+		bst.insert(95);
+		bst.insert(65);	
+		bst.insert(63);
+		bst.insert(67);
 		// print the BST
 		System.out.println("The BST Created with input data(Left-root-right):");
 		bst.inorder();
