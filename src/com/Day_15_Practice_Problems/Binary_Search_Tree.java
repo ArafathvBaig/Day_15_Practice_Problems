@@ -1,5 +1,7 @@
 package com.Day_15_Practice_Problems;
 
+import com.Day_15_Practice_Problems.BST_class.Node;
+
 public class Binary_Search_Tree
 {
 	// node class that defines BST node
@@ -65,6 +67,28 @@ public class Binary_Search_Tree
 			inorder_Recursive(root.right);
 		}
 	}
+	
+	boolean search(int key)  
+    { 
+        root = search_Recursive(root, key); 
+        if (root!= null)
+            return true;
+        else
+            return false;
+    } 
+   
+    //recursive insert function
+    Node search_Recursive(Node root, int key)  
+    { 
+        // Base Cases: root is null or key is present at root 
+        if (root==null || root.key==key) 
+            return root; 
+        // IF the root's key  is greater than Value
+        if (root.key > key) 
+            return search_Recursive(root.left, key); 
+        // IF the root's key  is less than Value 
+        return search_Recursive(root.right, key); 
+    } 
 
 	public static void main(String[] args) 
 	{
@@ -98,5 +122,8 @@ public class Binary_Search_Tree
 		// print the BST
 		System.out.println("The BST Created with input data(Left-root-right):");
 		bst.inorder();
+		 //search a key in the BST
+        boolean ret_val = bst.search (63);
+        System.out.println("\nKey 63 found in BST:" + ret_val );
 	}
 }
